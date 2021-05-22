@@ -12,14 +12,15 @@ fetch('https://restcountries.eu/rest/v2/all')
     .then((resp) => {
     return resp.json();
     }).then((resp) => {
-        let container = creation('div',document.body,"",[['class', 'container pt-5']]);
-        let row = creation('div',container,"",[['class', 'row'],['style','margin:10px;']]);
-        Country(resp,row);
+        
+        Country(resp);
     }).catch((error) => {
     console.log(error);
 });
 
-function Country(resp,row){
+function Country(resp){
+    let container = creation('div',document.body,"",[['class', 'container pt-5']]);
+    let row = creation('div',container,"",[['class', 'row'],['style','margin:10px;']]);
     resp.forEach((value) => {
         let col = creation('div',row,'',[['class','col-lg-4 card p-3'],['style', 'background:skyblue;']]);
 
